@@ -1440,7 +1440,16 @@ function displayEverything() {
                     }
                     //assign merchants
                     for (let p = 0; p < excessResources.length; p++) {
-                        tempAllExcessCombined = parseInt(Math.floor(excessResources[p][0].wood / 1000) * 1000) + parseInt(Math.floor(excessResources[p][1].stone / 1000) * 1000) + parseInt(Math.floor(excessResources[p][2].iron / 1000) * 1000);
+                        if (excessResources[p] && excessResources[p][0] && excessResources[p][1] && excessResources[p][2]) {
+    tempAllExcessCombined = 
+        parseInt(Math.floor((excessResources[p][0].wood || 0) / 1000) * 1000) + 
+        parseInt(Math.floor((excessResources[p][1].stone || 0) / 1000) * 1000) + 
+        parseInt(Math.floor((excessResources[p][2].iron || 0) / 1000) * 1000);
+} else {
+    console.log("excessResources[p] ou alguma de suas propriedades está indefinida");
+    tempAllExcessCombined = 0; // Ou qualquer valor padrão adequado
+}
+
 
                         if (tempAllExcessCombined > 0) {
                             //figure out % of merchants for each
