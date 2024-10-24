@@ -1273,7 +1273,7 @@ function displayEverything() {
                 </div>`);
                     //find excess/shortage
                     for (let v = 0; v < villagesData.length; v++) {
-			if (villagesData[v].warehouseCapacity >= 30) {
+			if (villagesData[v].warehouseCapacity >= 400000) {
         		console.log("Armazém nível 30, pulando esta aldeia.");
         		continue;
     			}
